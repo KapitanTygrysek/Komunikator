@@ -18,43 +18,7 @@ if(isset($_POST['zalogujj'])){
   {
     echo "Nie działa";
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   }
-
-
-
-
-
 
 //REJESTRACJA
 $login="";
@@ -94,40 +58,7 @@ if (isset($_POST['rejestruj'])) {
   }
 }
 }
-
-
-
  ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="pl">
 
@@ -167,9 +98,7 @@ if (isset($_POST['rejestruj'])) {
                 <a href="wypisywanie danych.php" >dane</a>
                 </form>
           </div>
-              
-              
-              
+         
                <div class="form signupForm">
              <form action="index.php" method="post">
               <!--formularz rejestracji -->
@@ -190,9 +119,6 @@ if (isset($_POST['rejestruj'])) {
       const signupBtn = document.querySelector('.signupBtn');
       const formBx = document.querySelector('.formBx');
       const body = document.querySelector('body')
-      
-      
-      
       signupBtn.onclick = function(){
           formBx.classList.add('active')
           body.classList.add('active')
