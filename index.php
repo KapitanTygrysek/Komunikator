@@ -9,14 +9,15 @@ if(isset($_POST['zalogujj'])){
 
   $sql=mysqli_query($con,"SELECT id,login, haslo, email FROM uzytkownicy WHERE email='".$email."' ");
   $wynik = mysqli_fetch_array($sql);
-  if (password_verify($haslo, $wynik['haslo'])) {
+  if (password_verify(@$haslo, @$wynik['haslo'])) {
     //Start sesji
     session_start();
     $_SESSION['login']=$wynik['id'];
+    $_SESSION['id']=$wynik['login'];
     header("Location: rozmowy.php");
   }else
   {
-    echo "Nie działa";
+    echo "Błędne dane";
   }
   }
 
@@ -34,7 +35,12 @@ if (isset($_POST['rejestruj'])) {
   $haslo=password_hash($haslo1, PASSWORD_DEFAULT);
   $email= $_POST['email'];
   $spre=mysqli_query($con,"SELECT count(email) FROM uzytkownicy WHERE email='".$email."' ");
+  $spre2=mysqli_query($con,"SELECT count(login) FROM uzytkownicy WHERE login='".$login."' ");
+  $r2=mysqli_fetch_array($spre2);
   $r=mysqli_fetch_array($spre);
+  if ($r2['count(login)']!=0) {
+    echo "Nick istnieje";
+  }else{
   if ($r['count(email)']!=0) {
   echo "E-mail istnieje";
   }else{
@@ -50,14 +56,14 @@ if (isset($_POST['rejestruj'])) {
     $ziup=mysqli_query($con,$ziap);
     $id=mysqli_fetch_array($ziup);
      $zapppp="INSERT INTO `wiad`(`id`, `wiadomosc`, `uzytkownik_id`, `uzytkownik_id2`) VALUES ('','Witaj w komunikatorze','".$id['id']."','0')";
-    $polacz->query($zapppp);
+    //$polacz->query($zapppp);
   }
   }else
   {
     echo "hasło jest błędne";
   }
 }
-}
+}}
  ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -95,7 +101,6 @@ if (isset($_POST['rejestruj'])) {
               <input type="text" name="email" placeholder="E-mail użytkownika">
                 <input type="password" name="haslo" placeholder="hasło">
                 <input type="submit" value="zaloguj się" name="zalogujj">
-                <a href="wypisywanie danych.php" >dane</a>
                 </form>
           </div>
          

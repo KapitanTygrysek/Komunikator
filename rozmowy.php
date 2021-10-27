@@ -1,14 +1,27 @@
-<?php 
+<?php
+session_start(); 
+if (!$_SESSION['login']) {
+    header("location:index.php");
+}else{
 require_once 'connection.php';
-session_start();
+
 $id=$_SESSION['login'];
 $zap="SELECT id, wiadomosc, uzytkownik_id, uzytkownik_id2 FROM wiad WHERE uzytkownik_id='".$id."' OR uzytkownik_id2='".$id."'";
+
+
+
 $wzap=mysqli_query($con,$zap);
 if (!$wzap) {
     echo "nie masz wiadomości";
 }else{
 while ($wwzap=mysqli_fetch_array($wzap)) {
-    echo "<p id='rozmowa'>Rozmowa między ".$wwzap['uzytkownik_id']." a ".$wwzap['uzytkownik_id2']."<br>".$wwzap['wiadomosc']."<br></p>";
+    $zap2="SELECT `login` FROM `uzytkownicy` WHERE id='".$id."'";
+$zap3="SELECT `login` FROM `uzytkownicy` WHERE id='".$wwzap['uzytkownik_id2']."'";
+$wzap2=mysqli_query($con,$zap2);
+$wwzap2=mysqli_fetch_array($wzap2);
+$wzap3=mysqli_query($con,$zap3);
+$wwzap3=mysqli_fetch_array($wzap3);
+    echo "<p id='rozmowa'>Rozmowa między ".$wwzap2['login']."(".$wwzap['uzytkownik_id'].") a ".$wwzap3['login']."(".$wwzap['uzytkownik_id2'].")<br>".$wwzap['wiadomosc']."<br></p>";
 }}
     if (isset($_POST['wys'])) {
     $idodb=$_POST['idodb'];
@@ -30,6 +43,12 @@ while ($wwzap=mysqli_fetch_array($wzap)) {
  	unset($_SESSION['login']);
  	header("location:index.php");	
  }
+ if (isset($_POST['zmn'])) {
+     header("location:zmiana.php");
+ }
+ if (isset($_POST['usn'])) {
+     header("location:usun.php");
+ }}
  ?>
  <!DOCTYPE html>
  <html>
@@ -43,7 +62,9 @@ while ($wwzap=mysqli_fetch_array($wzap)) {
     Do kogo wysłać (ID)<input type="number" name="idodb"><br>
     Wiadomość<input type="text" name="wiad"><br>
     <input type="submit" value="Wyślij"name="wys"><br>
-    <input type="submit" value="Wyloguj" name="wyl">
+    <input type="submit" value="Wyloguj" name="wyl"><br>
+    <input type="submit" name="zmn" value="Zmień nick"><br>
+    <input type="submit" name="usn" value="Usuń konto"><br>
 </form>
  </body>
  </html>
