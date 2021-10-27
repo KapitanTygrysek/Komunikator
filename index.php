@@ -111,7 +111,7 @@ if (isset($_POST['rejestruj'])) {
 
               <input type="text" name="login" placeholder="nazwa użytkownika">
                
-                 <input type="text" name="email" placeholder="E-mail">
+                 <input type="email" name="email" placeholder="E-mail">
                   <input type="password" name="haslo1" placeholder="hasło">
                    <input type="password" name="haslo2" placeholder=" potwierdz hasło">
                 <input type="submit" value="zarejestruj się" name="rejestruj" >

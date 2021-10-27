@@ -43,7 +43,7 @@
  </head>
  <body>
  <form method="post" action="zmiana.php">
- 	<h1 style="color: #868686;">Zmień swój nick</h1><br>
+ 	<h1>Zmień swój nick</h1><br>
  	<input type="text" name="zmiana"><br>
  	<input type="submit" name="zmna" value="Zmień"><br>
  	<input type="submit" name="wyjscie" value="Wyjście">

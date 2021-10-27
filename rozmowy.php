@@ -4,7 +4,7 @@ if (!$_SESSION['login']) {
     header("location:index.php");
 }else{
 require_once 'connection.php';
-
+echo "Twoje ID to: (".$_SESSION['login'].")";
 $id=$_SESSION['login'];
 $zap="SELECT id, wiadomosc, uzytkownik_id, uzytkownik_id2 FROM wiad WHERE uzytkownik_id='".$id."' OR uzytkownik_id2='".$id."'";
 
@@ -15,7 +15,7 @@ if (!$wzap) {
     echo "nie masz wiadomości";
 }else{
 while ($wwzap=mysqli_fetch_array($wzap)) {
-    $zap2="SELECT `login` FROM `uzytkownicy` WHERE id='".$id."'";
+    $zap2="SELECT `login` FROM `uzytkownicy` WHERE id='".$wwzap['uzytkownik_id']."'";
 $zap3="SELECT `login` FROM `uzytkownicy` WHERE id='".$wwzap['uzytkownik_id2']."'";
 $wzap2=mysqli_query($con,$zap2);
 $wwzap2=mysqli_fetch_array($wzap2);
@@ -56,6 +56,7 @@ $wwzap3=mysqli_fetch_array($wzap3);
  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta http-equiv="Content-Language" content="pl">
  	<title>Komunikator</title>
+    
  </head>
  <body>
 <form method="POST" action="rozmowy.php">
