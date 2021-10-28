@@ -52,6 +52,9 @@ $wwzap3=mysqli_fetch_array($wzap3);
  if (isset($_POST['kont'])) {
      header("location:kontakty.php");
  }
+ if (isset($_POST['zmnhsl'])) {
+     header("location:zmnhsl.php");
+ }
 }
  ?>
  <!DOCTYPE html>
@@ -67,10 +70,11 @@ $wwzap3=mysqli_fetch_array($wzap3);
     Do kogo wysłać (ID)<input type="number" name="idodb"><br>
     Wiadomość<input type="text" name="wiad"><br>
     <input type="submit" value="Wyślij"name="wys"><br>
+    <input type="submit" value="Kontakty" name="kont"><br>
     <input type="submit" value="Wyloguj" name="wyl"><br>
     <input type="submit" name="zmn" value="Zmień nick"><br>
+    <input type="submit" name="zmnhsl" value="Zmień hasło"><br>
     <input type="submit" name="usn" value="Usuń konto"><br>
-    <input type="submit" value="Kontakty" name="kont">
 </form>
  </body>
  </html>
