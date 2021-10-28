@@ -16,13 +16,14 @@ $sql = "DELETE FROM `uzytkownicy` WHERE id='".$id."'";
 $sql2 = "DELETE FROM `wiad` WHERE `uzytkownik_id`= '".$id."' OR `uzytkownik_id2`= '".$id."'";
 mysqli_query($con,$sql2);
 mysqli_query($con,$sql);
+ 	unset($_SESSION['login']);
 header("location:index.php");
 }else{
 	echo "<script type='text/javascript'>alert('Błędne hasło')</script>";
 }}
 
  if (isset($_POST['nn'])) {
- 	unset($_SESSION['login']);
+
      header("location:rozmowy.php");
  }}
 ?>
@@ -36,7 +37,7 @@ header("location:index.php");
 <body>
 <form method="post" action="usun.php">
 	<h1>Czy napewno chcesz usunąć konto</h1><br>
-	Wpisz hasło aby móc usunąć konto<input type="text" name="hasl"><br>
+	Wpisz hasło aby móc usunąć konto<input type="password" name="hasl"><br>
 	<input type="submit" name="tt" value="tak"><input type="submit" name="nn" value="Nie">
 </form>
 </body>

@@ -48,7 +48,11 @@ $wwzap3=mysqli_fetch_array($wzap3);
  }
  if (isset($_POST['usn'])) {
      header("location:usun.php");
- }}
+ }
+ if (isset($_POST['kont'])) {
+     header("location:kontakty.php");
+ }
+}
  ?>
  <!DOCTYPE html>
  <html>
@@ -66,6 +70,7 @@ $wwzap3=mysqli_fetch_array($wzap3);
     <input type="submit" value="Wyloguj" name="wyl"><br>
     <input type="submit" name="zmn" value="Zmień nick"><br>
     <input type="submit" name="usn" value="Usuń konto"><br>
+    <input type="submit" value="Kontakty" name="kont">
 </form>
  </body>
  </html>

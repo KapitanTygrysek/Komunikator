@@ -11,26 +11,8 @@ if (isset($_POST['essa'])) {
 	$spre=mysqli_query($con,"SELECT count(email) FROM uzytkownicy WHERE email='".$email."' ");
 	$r=mysqli_fetch_array($spre);
 	if ($r['count(email)']!=0) {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	$imie = "asd";
-	$temat="Odzyskanie hasła";$a=rand(1,1000000000000000000);
+	$temat="Odzyskanie hasła";$a=rand(100000,999999);	
 	$tresc="Twój kod odzyskania to:<br>".$a;
 	
 date_default_timezone_set('Europe/Warsaw');
