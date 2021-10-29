@@ -27,7 +27,7 @@ $wwzap3=mysqli_fetch_array($wzap3);
     $idodb=$_POST['idodb'];
     $wiad=$_POST['wiad'];
     $zap="INSERT INTO wiad VALUES (NUll,'".$wiad."','".$id."','".$idodb."')";
-
+    $_SESSION['idzap']=$idodb;
   $spre=mysqli_query($con,"SELECT count(id) FROM uzytkownicy WHERE id='".$idodb."' ");
   $r=mysqli_fetch_array($spre);
   if ($r['count(id)']!=0) 
@@ -41,6 +41,8 @@ $wwzap3=mysqli_fetch_array($wzap3);
 }
  if (isset($_POST['wyl'])) {
  	unset($_SESSION['login']);
+    unset($_SESSION['idzap']);
+    mysqli_close($con);
  	header("location:index.php");	
  }
  if (isset($_POST['zmn'])) {
@@ -63,12 +65,12 @@ $wwzap3=mysqli_fetch_array($wzap3);
  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta http-equiv="Content-Language" content="pl">
  	<title>Komunikator</title>
-    
+    <link rel="stylesheet" type="text/css" href="style2.css">
  </head>
  <body>
 <form method="POST" action="rozmowy.php">
-    Do kogo wysłać (ID)<input type="number" name="idodb"><br>
-    Wiadomość<input type="text" name="wiad"><br>
+    Do kogo wysłać (ID)<input type="number" name="idodb" <?php echo "value='".@$_SESSION['idzap']."'"; ?>><br>
+    Wiadomość<input type="text" name="wiad" id="essa"><br>
     <input type="submit" value="Wyślij"name="wys"><br>
     <input type="submit" value="Kontakty" name="kont"><br>
     <input type="submit" value="Wyloguj" name="wyl"><br>
