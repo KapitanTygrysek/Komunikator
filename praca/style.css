@@ -1,38 +1,43 @@
-*{
+* {
     margin: 0;
     padding: 0;
-    
-} 
-body{
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
     display: flex;
     justify-content: center;
-  align-items: center;
+    align-items: center;
     min-height: 100vh;
-    background: #03a9f4;
+    background: #4d61ff;
     transition: 0.5s;
 }
-body.active{
-    background: #ff3b52;
+
+body.active {
+    background: #5f00b1;
 }
-.container{
+
+.container {
     position: relative;
     width: 800px;
     height: 500px;
     margin: 20px;
-    
+
 }
-.blueBg{
+
+.blueBg {
     position: absolute;
     top: 40px;
     width: 100%;
     height: 420px;
-    background: rgba(255,255,255,.2);
-    box-shadow: 0 5px 45px rgba(0,0,0,0.15);
+    background: rgba(255, 255, 255, .2);
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.15);
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.blueBg .box{
+
+.blueBg .box {
     position: relative;
     width: 50%;
     height: 100%;
@@ -41,13 +46,15 @@ body.active{
     align-items: center;
     flex-direction: column;
 }
-.blueBg .box h2{
+
+.blueBg .box h2 {
     color: #fff;
     font-size: 1.2em;
     font-weight: 500;
     margin-bottom: 10px;
 }
-.blueBg .box button{
+
+.blueBg .box button {
     cursor: pointer;
     padding: 10px 20px;
     background: #fff;
@@ -56,7 +63,11 @@ body.active{
     font-weight: 500;
     border: none;
 }
-input:focus{outline: none;}
+
+input:focus {
+    outline: none;
+}
+
 .formBx {
     position: absolute;
     top: 0;
@@ -68,47 +79,55 @@ input:focus{outline: none;}
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 5px 45px rgba(0,0,0,0.25);
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.25);
     transition: 0.5s ease-in-out;
     overflow: hidden;
 }
-.formBx.active{
+
+.formBx.active {
     left: 50%;
 }
-.formBx .form{
+
+.formBx .form {
     position: absolute;
     left: 0;
     width: 100%;
     padding: 50px;
     transition: 0.5s;
 }
-.formBx .signinForm{
+
+.formBx .signinForm {
     transition-delay: 0.25s;
 }
+
 .formBx.active .signinForm {
-   left: -100%;
+    left: -100%;
 }
-.formBx .signupForm{
+
+.formBx .signupForm {
     left: 100%;
-        transition-delay: 0s;
+    transition-delay: 0s;
 }
-.formBx.active .signupForm{
+
+.formBx.active .signupForm {
     left: 0;
     transition-delay: 0s;
 }
-.formBx .form form{
+
+.formBx .form form {
     width: 50%;
     display: flex;
-flex-direction: column;
+    flex-direction: column;
 }
 
-.formBx .form form h3{
+.formBx .form form h3 {
     font-size: 1.5em;
     color: #333;
     margin-bottom: 20px;
     font-weight: 500;
 }
-.formBx .form form input{
+
+.formBx .form form input {
     width: 100%;
     margin-bottom: 20px;
     padding: 10px;
@@ -117,20 +136,15 @@ flex-direction: column;
     border: 1px solid #333;
 }
 
-.formBx .form form input[type="submit"]{
-   
-    background: #03a9f4;
+.formBx .form form input[type="submit"] {
+
+    background: #4d61ff;
     border: none;
     color: #fff;
     cursor: pointer;
     max-width: 130px;
 }
-.formBx.active .signupForm input[type="submit"]{
-    background:  #ff3b52;
+
+.formBx.active .signupForm input[type="submit"] {
+    background: #5f00b1;
 }
-
-
-
-
-
-

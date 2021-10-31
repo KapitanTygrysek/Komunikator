@@ -106,7 +106,7 @@ if (isset($_POST['recover'])) {
               <input type="text" name="email" placeholder="E-mail użytkownika">
                 <input type="password" name="haslo" placeholder="hasło">
                 <input type="submit" value="zaloguj się" name="zalogujj">
-                <input type="submit" value="odzyskaj hasło" name="recover">
+                <input type="submit" value="odzyskaj hasło" name="recover" id="recover">
                 </form>
           </div>
          
@@ -125,7 +125,7 @@ if (isset($_POST['recover'])) {
           </div>
       </div>
   </div>
-  <script>
+  <script> 
     const signinBtn = document.querySelector('.signinBtn');
       const signupBtn = document.querySelector('.signupBtn');
       const formBx = document.querySelector('.formBx');

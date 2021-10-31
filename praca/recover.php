@@ -1,4 +1,30 @@
-<?php
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Language" content="pl">
+    <link rel="stylesheet" href="stylepodstrony.css">
+    <script src="https://kit.fontawesome.com/9fe81ea0be.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resetowanie hasła</title>
+</head>
+
+<body>
+   <div class="bg"></div>
+    <form method="post" action="recover.php" >
+        <h1>Odzyskaj hasło</h1>
+        <input type="text" name="email" placeholder="Wprowadź email do konta:"><br>
+        <input type="submit" name="essa" value="resetuj">
+        <p class="komunikat">
+            <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -55,19 +81,11 @@ echo 'Mailer Error: ' . $mail->ErrorInfo;
 
 
 }else{
-	echo "<script type='text/javascript'>alert('E MAIL NIE ISTNIEJE W BAZIE')</script>";
+	echo "E-MAIL NIE ISTNIEJE W BAZIE";
 }}
- ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Resetowanie hasła</title>
-</head>
-<body><form method="post" action="recover.php">
-Wprowadź email do konta:
-<input type="text" name="email"><br>
-<input type="submit" name="essa" value="resetuj">
-</form></body>
+    ?>
+        </p>
+    </form>
+</body>
+
 </html>
