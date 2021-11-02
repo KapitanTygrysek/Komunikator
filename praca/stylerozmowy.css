@@ -246,6 +246,14 @@ input:outline {
     border-radius: 10px;
     max-width: 130%;
 }
+.rozmowal {
+    border: 1px solid #989898;
+    background: pink;
+    padding: 5px;
+    margin-top: 2px;
+    border-radius: 10px;
+    max-width: 130%;
+}
 
 .arrow-right {
     width: 0;
@@ -257,6 +265,17 @@ input:outline {
     margin-top: 5px;
     margin-bottom: -13px;
 
+}
+.arrow-left {
+    width: 0;
+    height: 0;
+    border-top: 0px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid pink;
+    transform: rotate(-270deg);
+    margin-top: 5px;
+    margin-bottom: -13px;
+    
 }
 
 .box {

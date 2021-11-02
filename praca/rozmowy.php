@@ -101,7 +101,10 @@ $wzap2=mysqli_query($con,$zap2);
 $wwzap2=mysqli_fetch_array($wzap2);
 $wzap3=mysqli_query($con,$zap3);
 $wwzap3=mysqli_fetch_array($wzap3);
-    echo "<div class='arrow-right'></div><p class='rozmowa'> ".$wwzap2['login']."(".$wwzap['uzytkownik_id'].") & ".$wwzap3['login']."(".$wwzap['uzytkownik_id2'].")<br>".$wwzap['wiadomosc']."<br></p>";
+    if ($wwzap['uzytkownik_id2']==$_SESSION['login']) {
+       echo "<div class='arrow-left'></div><p class='rozmowal'> ".$wwzap2['login']."(".$wwzap['uzytkownik_id'].") & ".$wwzap3['login']."(".$wwzap['uzytkownik_id2'].")<br>".$wwzap['wiadomosc']."<br></p>";
+    }else{
+    echo "<div class='arrow-right'></div><p class='rozmowa'> ".$wwzap2['login']."(".$wwzap['uzytkownik_id'].") & ".$wwzap3['login']."(".$wwzap['uzytkownik_id2'].")<br>".$wwzap['wiadomosc']."<br></p>";}
 }
                    ?>
 </div>
